@@ -1,0 +1,16 @@
+{
+  "autoUpdate": true,
+  "autoUpdateNotification": false,
+  "notifyAboutUpdates": false,
+  "plugins": {
+    "AlwaysAnimate": {
+      "enable": true
+    },
+    "FakeNitro": {
+      "enable": true
+    },
+    "VolumeBooster": {
+      "enable": true
+    }
+  }
+}
