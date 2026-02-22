@@ -23,21 +23,25 @@
 
   outputs =
     inputs@{
+      self,
       nix-darwin,
       nix-homebrew,
       home-manager,
+      homebrew-core,
+      homebrew-cask,
       ...
     }:
     {
-      darwinConfigurations."host_name" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."caelixui-MacBookPro" = nix-darwin.lib.darwinSystem {
         modules = [
           nix-homebrew.darwinModules.nix-homebrew
           home-manager.darwinModules.home-manager
           ./configurations/default.nix
+          ./configurations/darwin.nix
           ./configurations/brew.nix
           ./configurations/home-manager.nix
         ];
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit self homebrew-core homebrew-cask; };
       };
     };
 }
