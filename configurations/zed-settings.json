@@ -1,17 +1,9 @@
 {
-  "edit_predictions": {
-    "provider": "mercury"
-  },
   "debugger": {
     "dock": "left"
   },
   "git_panel": {
     "tree_view": true
-  },
-  "language_models": {
-    "ollama": {
-      "api_url": "https://ollama.caelix.dev:443"
-    }
   },
   "agent_servers": {
     "opencode": {
@@ -117,7 +109,7 @@
     "light": "One Light",
     "mode": "system"
   },
-  "ui_font_family": "Victor Mono",
+  "ui_font_family": "VictorMono Nerd Font Mono",
   "ui_font_size": 14,
   "indent_guides": {
     "active_line_width": 2,
