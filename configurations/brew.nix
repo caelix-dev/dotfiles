@@ -6,7 +6,6 @@
 {
   nix-homebrew = {
     enable = true;
-    enableRosetta = true;
     user = "caelix";
     taps = {
       "homebrew/homebrew-core" = homebrew-core;
@@ -22,12 +21,16 @@
       "KakaoTalk" = 869223134;
       "RunCat" = 1429033973;
     };
-    formula = [
+    brews = [
+      "fnm"
       "xcodes"
     ];
     casks = [
+      "1password"
+      "1password-cli"
       "arc"
       "brave-browser"
+      "ghostty"
       "gitkraken"
       "google-chrome"
       "keka"
@@ -41,6 +44,8 @@
       "signal"
       "telegram"
       "thaw"
+      "vesktop"
+      "zed"
     ];
   };
 }
