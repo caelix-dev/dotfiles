@@ -36,6 +36,7 @@
         magnification = true;
         autohide = true;
         autohide-delay = 0.0;
+        mru-spaces = false;
       };
       NSGlobalDomain = {
         KeyRepeat = 2;
