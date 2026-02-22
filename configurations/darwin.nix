@@ -18,14 +18,13 @@
 
     PLIST="/Users/$CONSOLE_USER/Library/Preferences/com.apple.symbolichotkeys.plist"
 
-    # F18(79)을 입력소스 전환 단축키로 설정 (key 61 = Select next input source)
-    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:61:enabled bool true"          "$PLIST" 2>/dev/null || true
-    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:61:value:parameters:0 integer 65535" "$PLIST" 2>/dev/null || true
-    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:61:value:parameters:1 integer 79"    "$PLIST" 2>/dev/null || true
-    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:61:value:parameters:2 integer 0"     "$PLIST" 2>/dev/null || true
+    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:61:enabled true"            "$PLIST" 2>/dev/null || true
+    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:61:value:parameters:0 65535" "$PLIST" 2>/dev/null || true
+    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:61:value:parameters:1 79"    "$PLIST" 2>/dev/null || true
+    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:61:value:parameters:2 0"     "$PLIST" 2>/dev/null || true
 
     # Cmd+Space Spotlight 비활성화 (key 64)
-    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:64:enabled bool false" "$PLIST" 2>/dev/null || true
+    sudo -u "$CONSOLE_USER" /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:64:enabled false" "$PLIST" 2>/dev/null || true
 
     sudo -u "$CONSOLE_USER" /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u 2>/dev/null || true
   '';
