@@ -66,9 +66,6 @@
             enableZshIntegration = true;
             silent = true;
           };
-          opencode = {
-            enable = true;
-          };
         };
         home.file = {
           ".config/zed/settings.json".text = builtins.readFile ./zed-settings.json;

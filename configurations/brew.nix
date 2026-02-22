@@ -23,6 +23,7 @@
     };
     brews = [
       "fnm"
+      "opencode"
     ];
     casks = [
       "1password"
