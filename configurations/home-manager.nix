@@ -1,14 +1,16 @@
 {
+  system.primaryUser = "caelix";
+  users.users.caelix.home = "/Users/caelix";
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "bak";
     users.caelix =
-      { pkgs, ... }:
+      { pkgs, lib, ... }:
       {
-        home.stateVersion = "unstable";
+        home.stateVersion = "26.05";
         home.packages = with pkgs; [
           vim
-          git
           eza
           bat
           ripgrep
@@ -36,13 +38,23 @@
             autosuggestion.enable = true;
             syntaxHighlighting.enable = true;
             historySubstringSearch.enable = true;
+            initContent = lib.mkMerge [
+              (lib.mkBefore ''
+                [[ -f "''${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "''${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+              '')
+              (builtins.readFile ./.zshrc)
+              (lib.mkAfter ''
+                [[ -f "''${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "''${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+              '')
+            ];
+            envExtra = builtins.readFile ./.zshenv;
           };
-          _1password.enable = true;
-          _1password-gui.enable = true;
           git = {
             enable = true;
-            email = "me@caelix.dev";
-            name = "caelix-dev";
+            settings = {
+              user.email = "me@caelix.dev";
+              user.name = "caelix-dev";
+            };
           };
           starship = {
             enable = true;
@@ -54,27 +66,14 @@
             enableZshIntegration = true;
             silent = true;
           };
-          zed-editor = {
-            enable = true;
-            settings = builtins.fromJSON (builtins.readFile ./zed-settings.json);
-            mutableUserDebug = false;
-            mutableUserKeymaps = false;
-            mutableUserSettings = false;
-            mutableUserTasks = false;
-          };
-          vesktop = {
-            enable = true;
-            vencord.settings = builtins.fromJSON (builtins.readFile ./vencord-settings.json);
-          };
-          ghostty = {
-            enable = true;
-            enableZshIntegration = true;
-            installBatSyntax = true;
-            settings = builtins.fromJSON (builtins.readFile ./ghostty-settings.json);
-          };
           opencode = {
             enable = true;
           };
+        };
+        home.file = {
+          ".config/zed/settings.json".text = builtins.readFile ./zed-settings.json;
+          "Library/Application Support/com.mitchellh.ghostty/config".text = builtins.readFile ./ghostty-settings;
+          "Library/Application Support/vesktop/settings/settings.json".text = builtins.readFile ./vesktop-settings.json;
         };
       };
   };
