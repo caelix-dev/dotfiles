@@ -23,7 +23,6 @@
     };
     brews = [
       "fnm"
-      "xcodes"
     ];
     casks = [
       "1password"
@@ -45,6 +44,7 @@
       "telegram"
       "thaw"
       "vesktop"
+      "xcodes-app"
       "zed"
     ];
   };
