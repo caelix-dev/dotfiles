@@ -60,6 +60,12 @@
         autohide-delay = 0.0;
         mru-spaces = false;
       };
+      trackpad = {
+        Clicking = false;                              # 탭 클릭 비활성화
+        FirstClickThreshold = 0;                       # 클릭 가볍게
+        SecondClickThreshold = 0;                      # Force Touch 가볍게
+        TrackpadTwoFingerFromRightEdgeSwipeGesture = 0; # 오른쪽 스와이프 알림센터 끄기
+      };
       NSGlobalDomain = {
         KeyRepeat = 2;
         InitialKeyRepeat = 15;

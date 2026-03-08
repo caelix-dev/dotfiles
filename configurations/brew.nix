@@ -27,6 +27,7 @@
     ];
     casks = [
       "1password"
+      "antigravity"
       "1password-cli"
       "arc"
       "brave-browser"
