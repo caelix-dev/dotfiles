@@ -15,6 +15,9 @@
   };
   homebrew = {
     enable = true;
+    onActivation.autoUpdate = true;
+    onActivation.upgrade = true;
+    onActivation.cleanup = "uninstall";
     masApps = {
       "Amphetamine" = 937984704;
       "Dropover" = 1355679052;
@@ -23,7 +26,6 @@
     };
     brews = [
       "fnm"
-      "opencode"
     ];
     casks = [
       "1password"

@@ -36,6 +36,9 @@
         modules = [
           nix-homebrew.darwinModules.nix-homebrew
           home-manager.darwinModules.home-manager
+          ({ config, ... }: {
+            homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+          })
           ./configurations/default.nix
           ./configurations/darwin.nix
           ./configurations/brew.nix

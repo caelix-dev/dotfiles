@@ -9,6 +9,23 @@
       { pkgs, lib, ... }:
       {
         home.stateVersion = "26.05";
+
+        home.activation.setupNode = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          # Setup fnm environment (installed via homebrew)
+          export PATH="/opt/homebrew/bin:$PATH"
+          # Add /usr/bin to PATH
+          export PATH="/usr/bin:$PATH"
+
+          # Install/update Node.js LTS and set as default
+          /opt/homebrew/bin/fnm install --lts
+          /opt/homebrew/bin/fnm default lts-latest
+
+          # Install/update opencode-ai globally using fnm exec
+          /opt/homebrew/bin/fnm exec --using=lts-latest -- npm install -g opencode-ai@latest
+
+          # Install/update claude-code globally
+          curl -fsSL https://claude.ai/install.sh | bash
+        '';
         home.packages = with pkgs; [
           vim
           eza
