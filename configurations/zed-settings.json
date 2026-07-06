@@ -9,12 +9,7 @@
     "opencode": {
       "type": "custom",
       "command": "opencode",
-      "args": ["acp"],
-      "default_model": "anthropic/claude-opus-4-5"
-    },
-    "claude": {
-      "default_mode": "bypassPermissions",
-      "default_model": "default"
+      "args": ["acp"]
     }
   },
   "context_servers": {
@@ -38,12 +33,17 @@
     }
   },
   "agent": {
+    "dock": "right",
     "tool_permissions": {
       "default": "allow"
     },
     "show_turn_stats": true
   },
+  "collaboration_panel": {
+    "dock": "left"
+  },
   "project_panel": {
+    "dock": "left",
     "auto_fold_dirs": false,
     "hide_hidden": false,
     "hide_root": false,
@@ -52,11 +52,14 @@
     "folder_icons": true,
     "entry_spacing": "standard"
   },
+  "outline_panel": {
+    "dock": "right"
+  },
   "tabs": {
     "file_icons": true
   },
   "title_bar": {
-    "show_branch_icon": false
+    "show_branch_status_icon": false
   },
   "auto_install_extensions": {
     "biome": true,
